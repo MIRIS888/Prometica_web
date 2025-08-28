@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:chroniclehq.com)",
+      "Bash(python:*)",
+      "WebFetch(domain:onde.app)",
+      "WebFetch(domain:www.consolidator.aero)",
+      "WebFetch(domain:www.basadstudios.com)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

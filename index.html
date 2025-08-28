@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prometica - AI řešení budoucnosti</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient"></div>
+    <div class="cursor-glow"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Prometica" class="logo-image">
+                </div>
+                <span class="logo-text">Prometica</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">
+                    <span class="nav-link-text">Domů</span>
+                    <span class="nav-link-hover"></span>
+                </a>
+                <a href="#solutions" class="nav-link">
+                    <span class="nav-link-text">Produkty</span>
+                    <span class="nav-link-hover"></span>
+                </a>
+                <a href="#about" class="nav-link">
+                    <span class="nav-link-text">O nás</span>
+                    <span class="nav-link-hover"></span>
+                </a>
+                <a href="#blog" class="nav-link">
+                    <span class="nav-link-text">Blog</span>
+                    <span class="nav-link-hover"></span>
+                </a>
+                <a href="#contact" class="nav-cta">
+                    <span>Kontakt</span>
+                    <div class="btn-glow"></div>
+                </a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-particles"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Vytváříme</span>
+                    <span class="title-line gradient-text">AI budoucnost</span>
+                    <span class="title-line">pro firmy</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Jsme AI studio specializující se na vývoj inteligentních řešení pro podniky. 
+                    Naše produkty jsou aktuálně ve vývoji a brzy budou k dispozici v beta verzi.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+                        <span>Kontaktujte nás</span>
+                        <div class="btn-ripple"></div>
+                        <div class="btn-particles"></div>
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.querySelector('#solutions').scrollIntoView({behavior: 'smooth'})">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                        <span>Naše produkty</span>
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">AI produktů ve vývoji</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="2025">0</div>
+                        <div class="stat-label">Rok založení</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-container">
+                    <div class="floating-card card-ai">
+                        <div class="card-header">
+                            <div class="card-icon">📞</div>
+                            <div class="card-title">AI Telefonní Asistent</div>
+                            <div class="beta-label">Ve vývoji</div>
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="message-thread">
+                                <div class="message ai-message">
+                                    <div class="message-avatar"></div>
+                                    <div class="message-text">Dobrý den, restaurace Zlatá husa, jak vám mohu pomoci?</div>
+                                </div>
+                                <div class="message user-message">
+                                    <div class="message-text">Chtěl bych rezervovat stůl pro 4 osoby na zítra v 19:00</div>
+                                </div>
+                                <div class="message ai-message">
+                                    <div class="message-avatar"></div>
+                                    <div class="message-text">Perfektní! Rezervuji stůl na zítra 19:00 pro 4 osoby. 📝</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="floating-card card-analytics">
+                        <div class="card-header">
+                            <div class="card-icon">💰</div>
+                            <div class="card-title">AI Analýza Účetnictví</div>
+                            <div class="beta-label">Ve vývoji</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="metric-row">
+                                <div class="metric">
+                                    <div class="metric-value">24</div>
+                                    <div class="metric-label">Anomálie nalezeny</div>
+                                </div>
+                                <div class="metric-change positive">AI audit ✓</div>
+                            </div>
+                            <div class="chart-container">
+                                <div class="chart-bar" style="height: 85%"></div>
+                                <div class="chart-bar" style="height: 65%"></div>
+                                <div class="chart-bar" style="height: 90%"></div>
+                                <div class="chart-bar" style="height: 72%"></div>
+                                <div class="chart-bar" style="height: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    
+                    <div class="floating-card card-automation">
+                        <div class="card-header">
+                            <div class="card-icon">🌐</div>
+                            <div class="card-title">AI Tvorba Webů</div>
+                            <div class="beta-label">Ve vývoji</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="automation-flow">
+                                <div class="flow-step active">
+                                    <div class="step-icon">✨</div>
+                                    <div class="step-text">AI design</div>
+                                </div>
+                                <div class="flow-arrow"></div>
+                                <div class="flow-step active">
+                                    <div class="step-icon">⚙️</div>
+                                    <div class="step-text">Auto kód</div>
+                                </div>
+                                <div class="flow-arrow"></div>
+                                <div class="flow-step processing">
+                                    <div class="step-icon">🚀</div>
+                                    <div class="step-text">Deploy</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll</div>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Vyvíjíme pro vás</span>
+                    <div class="badge-glow"></div>
+                </div>
+                <h2 class="section-title">
+                    <span>AI Studio</span>
+                    <span class="gradient-text">ve službách firem</span>
+                </h2>
+                <p class="section-subtitle">
+                    Specializujeme se na vývoj pokročilých AI řešení. Každý produkt je pečlivě navržen pro konkrétní potřeby moderních podniků.
+                </p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon-container">
+                            <div class="card-icon large">🤖</div>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="product-status">🚧 Ve vývoji</div>
+                        <h3>AI Telefoní Asistent</h3>
+                        <p>AI systém, který přijímá telefonní hovory zákazníků a automaticky zpracovává rezervace stůlů v restauracích. Systém vede přirozený rozhovor a vše zapíše do kalendáře.</p>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="feature-icon">🔄</span>
+                                <span>Automatické příjímání hovorů</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">🔄</span>
+                                <span>Přirozená konverzace s AI</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">🔄</span>
+                                <span>Automatický zápis do kalendáře</span>
+                            </li>
+                        </ul>
+                        <button class="solution-btn disabled">
+                            <span>Ve vývoji</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon-container">
+                            <div class="card-icon">📊</div>
+                        </div>
+                        <div class="product-status coming-soon">🔜 Ve vývoji</div>
+                        <h3>AI Analýza Účetnictví</h3>
+                        <p>Inteligentní systém pro automatickou analýzu účetních dat, detekci anomalií a generování finčních přehledů</p>
+                        <button class="solution-btn disabled">
+                            <span>Ve vývoji</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon-container">
+                            <div class="card-icon">⚡</div>
+                        </div>
+                        <div class="product-status planning">📋 Ve vývoji</div>
+                        <h3>Tvorba Webových Stránek</h3>
+                        <p>AI-powered nástroj pro automatickou tvorbu moderních webových stránek podle specifikácí zákazníka</p>
+                        <button class="solution-btn disabled">
+                            <span>Ve vývoji</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider-dots">
+        <div class="divider-dot"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-dot"></div>
+    </div>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Technologie</span>
+                    <div class="badge-glow"></div>
+                </div>
+                <h2 class="section-title">
+                    <span>Experimentujeme s</span>
+                    <span class="gradient-text">cutting-edge technologiemi</span>
+                </h2>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">🧠</div>
+                    <div class="tech-name">Machine Learning</div>
+                    <div class="tech-status">Aktivní výzkum</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔗</div>
+                    <div class="tech-name">Neural Networks</div>
+                    <div class="tech-status">Experimentujeme</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">☁️</div>
+                    <div class="tech-name">Cloud Infrastructure</div>
+                    <div class="tech-status">Připravujeme</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🚀</div>
+                    <div class="tech-name">Real-time AI</div>
+                    <div class="tech-status">R&D fáze</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Poznejte nás</span>
+                    <div class="badge-glow"></div>
+                </div>
+                <h2 class="section-title">
+                    <span>Jsme</span>
+                    <span class="gradient-text">AI studio budoucnosti</span>
+                </h2>
+                <p class="section-subtitle">
+                    Tým vývojářů a inovátorů, kteří vytvářejí inteligentní řešení pro moderní podniky
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-story">
+                    <div class="story-card">
+                        <div class="story-icon">🚀</div>
+                        <h3>Naše mise</h3>
+                        <p>
+                            Demokratizovat přístup k pokročilým AI technologiím pro všechny firmy. Věříme, že umělá inteligence má potenciál změnit způsob, jakým podnikame.
+                        </p>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-icon">🤝</div>
+                        <h3>Naše hodnoty</h3>
+                        <p>
+                            Transparentnost, inovace a zákaznický přístup. Každý produkt vyvíjíme v úzké spoluprací s našimi partnery a beta testery.
+                        </p>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-icon">🔬</div>
+                        <h3>Naše budoucnost</h3>
+                        <p>
+                            Do roku 2025 chceme být vedoucím AI studiem v České republice s portfoliem inovativních řešení pro různá odvětví.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-preview">
+                    <h3>Náš tým</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-avatar"></div>
+                            <div class="member-info">
+                                <div class="member-name">Miroslav Pizúr</div>
+                                <div class="member-role">Founder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider-dots">
+        <div class="divider-dot"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-dot"></div>
+    </div>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Vývojový blog</span>
+                    <div class="badge-glow"></div>
+                </div>
+                <h2 class="section-title">
+                    <span>Sledujte naš</span>
+                    <span class="gradient-text">pokrok a poznatky</span>
+                </h2>
+                <p class="section-subtitle">
+                    Sdílíme naše poznatky z vývoje AI, technické články a aktuální novinky ze studia
+                </p>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-post featured">
+                    <div class="post-image">
+                        <div class="post-badge">Nejnovější</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">15. prosince 2024</span>
+                            <span class="post-category">Vývoj</span>
+                        </div>
+                        <h3>Jak trenujeme naš AI rezervační systém</h3>
+                        <p>Podívejte se do zákulisí vývoje našeho prvního produktu. Sdílíme výzvy, úspěchy a lekce, které jsme se naučili během posledních měsíců.</p>
+                        <div class="post-stats">
+                            <span>👁 247 čtenářů</span>
+                            <span>🕰 8 min čtení</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="post-image">
+                        <div class="post-badge beta">Beta update</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">8. prosince 2024</span>
+                            <span class="post-category">Update</span>
+                        </div>
+                        <h3>Beta verze 0.3 - Co je nového?</h3>
+                        <p>Nová beta verze přináší vylepšené zpracování přirozeného jazyka a rychlejší odpovědi AI asistenta.</p>
+                        <div class="post-stats">
+                            <span>👁 156 čtenářů</span>
+                            <span>🕰 5 min čtení</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="post-image"></div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">1. prosince 2024</span>
+                            <span class="post-category">Technologie</span>
+                        </div>
+                        <h3>Proč jsme si vybrali React a Node.js</h3>
+                        <p>Rozhodnutí o technologickém stacku je klíčové. Sdílíme naše úvaha a zkus enosti s moderními web technologiemi.</p>
+                        <div class="post-stats">
+                            <span>👁 89 čtenářů</span>
+                            <span>🕰 6 min čtení</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="blog-cta">
+                <button class="btn btn-secondary">
+                    <span>Více článků</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-background"></div>
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-badge">
+                    <span>📞 Kontaktujte nás</span>
+                    <div class="badge-glow"></div>
+                </div>
+                <h2 class="cta-title">
+                    <span>Zajímá vás</span>
+                    <span class="gradient-text">naše řešení?</span>
+                </h2>
+                <p class="cta-subtitle">
+                    Napište nám a dozvíte se více o našich AI produktech a možnostech spoluprace
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="section-badge">
+                        <span>Kontakt</span>
+                        <div class="badge-glow"></div>
+                    </div>
+                    <h2>Napište nám</h2>
+                    <p>Máte dotazy k našim produktum? Chcete se dozvědět víc o možnostech spolupráce? Neváhejte nás kontaktovat.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">✉️</div>
+                            <div class="method-info">
+                                <div class="method-title">Email</div>
+                                <div class="method-value">info@prometica.cz</div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">📱</div>
+                            <div class="method-info">
+                                <div class="method-title">Telefon</div>
+                                <div class="method-value">+420 123 456 789</div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">🕐</div>
+                            <div class="method-info">
+                                <div class="method-title">Odpověď do</div>
+                                <div class="method-value">24 hodin</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Jméno *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Společnost</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">Zájem o *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Vyberte produkt</option>
+                                <option value="ai-phone">AI Telefonní Asistent</option>
+                                <option value="ai-accounting">AI Analýza Účetnictví</option>
+                                <option value="web-creation">Tvorba Webových Stránek</option>
+                                <option value="consultation">Konzultace</option>
+                                <option value="other">Jiné</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Zpráva *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Popište nám váš projekt nebo požadavky..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large form-submit">
+                            <span>Odeslat zprávu</span>
+                            <div class="btn-ripple"></div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="form-note">
+                            <small>Všechna pole označená * jsou povinná. Vaše údaje používáme pouze pro odpověď na váš dotaz.</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <img src="logo.jpg" alt="Prometica" class="logo-image small">
+                        </div>
+                        <span>Prometica</span>
+                    </div>
+                    <p>AI studio tvořící budoucnost podnikání</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Produkty ve vývoji</h4>
+                    <ul>
+                        <li><a href="#">AI Rezervační Systém (Beta)</a></li>
+                        <li><a href="#">Analytics Platform (Q1 2025)</a></li>
+                        <li><a href="#">Process Automation (Q2 2025)</a></li>
+                        <li><a href="#">Security Framework</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Studio</h4>
+                    <ul>
+                        <li><a href="#about">O nás</a></li>
+                        <li><a href="#about">Tým</a></li>
+                        <li><a href="#blog">Vývojový blog</a></li>
+                        <li><a href="#contact">Beta program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li>info@prometica.cz</li>
+                        <li>+420 123 456 789</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Prometica. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
