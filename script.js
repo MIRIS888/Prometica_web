@@ -287,18 +287,9 @@ function initializeScrollAnimations() {
     automationFlows.forEach(flow => scrollObserver.observe(flow));
 }
 
-// ===== PARALLAX EFFECT =====
+// ===== PARALLAX EFFECT (DISABLED) =====
 function initializeParallax() {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.floating-card');
-        
-        parallaxElements.forEach((element, index) => {
-            const speed = (index + 1) * 0.5;
-            const yPos = -(scrolled * speed / 10);
-            element.style.transform = `translateY(${yPos}px)`;
-        });
-    });
+    // Disabled to prevent scroll conflicts
 }
 
 // ===== TYPING ANIMATION =====
@@ -672,114 +663,21 @@ function showFormMessage(message, type) {
 }
 
 // ===== FINAL INITIALIZATION =====
-// ===== MOMENTUM SMOOTH SCROLL =====
-class MomentumScroller {
-    constructor() {
-        this.scrollTarget = 0;
-        this.scrollCurrent = 0;
-        this.ease = 0.08;
-        this.isScrolling = false;
-        this.init();
-    }
-    
-    init() {
-        // Disable default scroll behavior
-        this.updateScrollTarget();
-        this.smoothScrollLoop();
-        this.bindEvents();
-    }
-    
-    updateScrollTarget() {
-        this.scrollTarget = window.pageYOffset;
-        this.scrollCurrent = window.pageYOffset;
-    }
-    
-    bindEvents() {
-        // Handle wheel events for momentum
-        let wheelTimeout;
-        window.addEventListener('wheel', (e) => {
-            clearTimeout(wheelTimeout);
-            this.isScrolling = true;
-            
-            // Smooth wheel scrolling with momentum
-            const delta = e.deltaY * 0.8;
-            this.scrollTarget += delta;
-            this.scrollTarget = Math.max(0, Math.min(this.scrollTarget, document.body.scrollHeight - window.innerHeight));
-            
-            wheelTimeout = setTimeout(() => {
-                this.isScrolling = false;
-            }, 150);
-        }, { passive: true });
-        
-        // Handle navigation clicks
-        const links = document.querySelectorAll('a[href^="#"]');
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.scrollToSection(link.getAttribute('href'));
-            });
-        });
-        
-        // Handle button clicks
-        const buttons = document.querySelectorAll('.btn');
-        buttons.forEach(button => {
-            if (button.getAttribute('onclick')) {
-                button.removeAttribute('onclick');
-                button.addEventListener('click', (e) => {
-                    if (button.textContent.includes('Kontaktujte nás')) {
-                        e.preventDefault();
-                        this.scrollToSection('#contact');
-                    } else if (button.textContent.includes('Naše produkty')) {
-                        e.preventDefault();
-                        this.scrollToSection('#solutions');
-                    }
+// ===== SIMPLE SMOOTH SCROLL =====
+function initializeSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
                 });
             }
         });
-        
-        // Update on resize
-        window.addEventListener('resize', () => {
-            this.updateScrollTarget();
-        });
-    }
-    
-    scrollToSection(targetId) {
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
-            this.scrollTarget = Math.max(0, Math.min(offsetTop, document.body.scrollHeight - window.innerHeight));
-        }
-    }
-    
-    smoothScrollLoop() {
-        if (Math.abs(this.scrollTarget - this.scrollCurrent) > 0.5) {
-            this.scrollCurrent += (this.scrollTarget - this.scrollCurrent) * this.ease;
-            window.scrollTo(0, this.scrollCurrent);
-        } else {
-            this.scrollCurrent = this.scrollTarget;
-        }
-        
-        requestAnimationFrame(() => this.smoothScrollLoop());
-    }
-}
-
-function initializeSmoothScroll() {
-    // Only initialize on desktop for performance
-    if (window.innerWidth > 768) {
-        new MomentumScroller();
-    } else {
-        // Keep simple smooth scroll on mobile
-        const links = document.querySelectorAll('a[href^="#"]');
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {

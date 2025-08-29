@@ -5,7 +5,14 @@
       "Bash(python:*)",
       "WebFetch(domain:onde.app)",
       "WebFetch(domain:www.consolidator.aero)",
-      "WebFetch(domain:www.basadstudios.com)"
+      "WebFetch(domain:www.basadstudios.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(start http://localhost:8080)",
+      "Bash(curl:*)",
+      "Bash(git restore:*)",
+      "Bash(start http://localhost:8080?cache=bust)"
     ],
     "deny": [],
     "ask": []
