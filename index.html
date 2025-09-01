@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Prometica - AI řešení budoucnosti</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css?v=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -27,7 +30,7 @@
                     <span class="nav-link-text">Domů</span>
                     <span class="nav-link-hover"></span>
                 </a>
-                <a href="#solutions" class="nav-link">
+                <a href="produkty.html" class="nav-link">
                     <span class="nav-link-text">Produkty</span>
                     <span class="nav-link-hover"></span>
                 </a>
@@ -57,18 +60,47 @@
         <div class="hero-particles"></div>
         <div class="hero-container">
             <div class="hero-content">
+                <div class="startup-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span class="badge-text">AI Startup</span>
+                    <span class="badge-year">Est. 2024</span>
+                </div>
                 <h1 class="hero-title">
-                    <span class="title-line">Vytváříme</span>
+                    <span class="title-line">Budujeme</span>
                     <span class="title-line gradient-text">AI budoucnost</span>
-                    <span class="title-line">pro firmy</span>
+                    <span class="title-line">pro český trh</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Jsme AI studio specializující se na vývoj inteligentních řešení pro podniky. 
-                    Naše produkty jsou aktuálně ve vývoji a brzy budou k dispozici v beta verzi.
+                    Jsme <span class="subtitle-emphasis">mladý český startup</span> zaměřený na vývoj praktických AI řešení. 
+                    <span class="subtitle-highlight">3 produkty ve vývoji</span>, které skutečně 
+                    <strong>ušetří čas</strong>, <strong>sníží náklady</strong> a <strong>zautomatizují procesy</strong> pro české firmy.
                 </p>
+                <div class="startup-metrics">
+                    <div class="metric-item">
+                        <span class="metric-icon">🎯</span>
+                        <div class="metric-content">
+                            <span class="metric-number">3</span>
+                            <span class="metric-label">AI produkty v beta</span>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-icon">⏰</span>
+                        <div class="metric-content">
+                            <span class="metric-number">2024</span>
+                            <span class="metric-label">Rok založení</span>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-icon">🚀</span>
+                        <div class="metric-content">
+                            <span class="metric-number">∞</span>
+                            <span class="metric-label">Potenciál růstu</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
-                        <span>Kontaktujte nás</span>
+                    <button class="btn btn-primary hero-cta-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+                        <span>💡 Chci být early adopter</span>
                         <div class="btn-ripple"></div>
                         <div class="btn-particles"></div>
                     </button>
@@ -76,7 +108,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
                         </svg>
-                        <span>Naše produkty</span>
+                        <span>Co budujeme</span>
                     </button>
                 </div>
                 <div class="hero-stats">
@@ -95,42 +127,31 @@
                 <div class="visual-container">
                     <div class="floating-card card-ai">
                         <div class="card-header">
-                            <div class="card-icon">📞</div>
-                            <div class="card-title">AI Telefonní Asistent</div>
-                            <div class="status-indicator online"></div>
+                            <div class="card-icon">🤖</div>
+                            <div class="card-title">SmartCall</div>
                         </div>
+                        <div class="card-tagline">Váš AI recepční, který nikdy nespí</div>
                         <div class="card-content">
-                            <div class="phone-interface">
-                                <div class="phone-screen">
-                                    <div class="call-info">
-                                        <div class="caller-avatar">👤</div>
-                                        <div class="caller-details">
-                                            <div class="caller-name">Jan Novák</div>
-                                            <div class="caller-number">+420 123 456 789</div>
-                                        </div>
-                                        <div class="call-duration">00:43</div>
-                                    </div>
-                                    <div class="live-transcription">
-                                        <div class="transcription-header">🎤 Přímý přepis</div>
-                                        <div class="transcript-text">
-                                            <span class="ai-text">AI: Dobrý den, restaurace Zlatá husa...</span>
-                                            <span class="customer-text">Zákazník: Rezervace pro 4 na zítra...</span>
-                                            <span class="ai-text typing">AI: <span class="typing-dots">●●●</span></span>
-                                        </div>
+                            <div class="value-proposition">
+                                <div class="value-item">
+                                    <div class="value-icon">💰</div>
+                                    <div class="value-text">
+                                        <div class="value-title">Ušetřete až 80%</div>
+                                        <div class="value-desc">nákladů na personál</div>
                                     </div>
                                 </div>
-                                <div class="call-controls">
-                                    <div class="control-btn recording">
-                                        <span class="control-icon">🔴</span>
-                                        <span class="control-label">REC</span>
+                                <div class="value-item">
+                                    <div class="value-icon">⚡</div>
+                                    <div class="value-text">
+                                        <div class="value-title">0.3 sekundy</div>
+                                        <div class="value-desc">průměrná doba odpovědi</div>
                                     </div>
-                                    <div class="control-btn">
-                                        <span class="control-icon">💬</span>
-                                        <span class="control-label">Chat</span>
-                                    </div>
-                                    <div class="control-btn">
-                                        <span class="control-icon">📝</span>
-                                        <span class="control-label">Notes</span>
+                                </div>
+                                <div class="value-item">
+                                    <div class="value-icon">🎯</div>
+                                    <div class="value-text">
+                                        <div class="value-title">99.2% přesnost</div>
+                                        <div class="value-desc">v rezervacích a objednávkách</div>
                                     </div>
                                 </div>
                             </div>
@@ -140,41 +161,32 @@
                     
                     <div class="floating-card card-analytics">
                         <div class="card-header">
-                            <div class="card-icon">📊</div>
-                            <div class="card-title">FinanceIQ Pro</div>
+                            <div class="card-icon">🛡️</div>
+                            <div class="card-title">FinanceGuard</div>
                         </div>
+                        <div class="card-tagline">AI detektiv pro vaše finance</div>
                         <div class="card-content">
-                            <div class="analytics-compact">
-                                <div class="analytics-status">
-                                    <span class="status-dot"></span>
-                                    <span class="status-label">Analýza dokončena</span>
-                                </div>
-                                
-                                <div class="metrics-row">
-                                    <div class="metric-compact">
-                                        <div class="metric-value">2.4M Kč</div>
-                                        <div class="metric-label">Obrat</div>
-                                        <div class="metric-change">+18%</div>
-                                    </div>
-                                    <div class="metric-compact">
-                                        <div class="metric-value">156</div>
-                                        <div class="metric-label">Anomálie</div>
-                                        <div class="metric-change warning">-23</div>
+                            <div class="value-proposition">
+                                <div class="value-item">
+                                    <div class="value-icon">🔍</div>
+                                    <div class="value-text">
+                                        <div class="value-title">99.8% úspěšnost</div>
+                                        <div class="value-desc">detekce podvodů a chyb</div>
                                     </div>
                                 </div>
-                                
-                                <div class="chart-preview">
-                                    <div class="chart-bar" style="height: 60%"></div>
-                                    <div class="chart-bar" style="height: 80%"></div>
-                                    <div class="chart-bar" style="height: 45%"></div>
-                                    <div class="chart-bar" style="height: 90%"></div>
-                                    <div class="chart-bar" style="height: 70%"></div>
-                                    <div class="chart-bar" style="height: 95%"></div>
+                                <div class="value-item">
+                                    <div class="value-icon">📈</div>
+                                    <div class="value-text">
+                                        <div class="value-title">Ušetří až 65%</div>
+                                        <div class="value-desc">času účetních a CFO</div>
+                                    </div>
                                 </div>
-                                
-                                <div class="insights-compact">
-                                    <div class="insight">💰 284k Kč úspory identifikovány</div>
-                                    <div class="insight">⚡ 98.7% přesnost AI analýzy</div>
+                                <div class="value-item">
+                                    <div class="value-icon">⚡</div>
+                                    <div class="value-text">
+                                        <div class="value-title">2 sekundy</div>
+                                        <div class="value-desc">analýza tisíců transakcí</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -183,29 +195,33 @@
                     
                     <div class="floating-card card-automation">
                         <div class="card-header">
-                            <div class="card-icon">🌐</div>
-                            <div class="card-title">AI Tvorba Webů</div>
+                            <div class="card-icon">🚀</div>
+                            <div class="card-title">WebBoost</div>
                         </div>
+                        <div class="card-tagline">Od nápadu k webu za 5 minut</div>
                         <div class="card-content">
-                            <div class="web-features">
-                                <div class="feature-row">
-                                    <span class="feature-icon">⚡</span>
-                                    <span class="feature-text">Rychlá tvorba</span>
-                                    <span class="feature-status">✓</span>
+                            <div class="value-proposition">
+                                <div class="value-item">
+                                    <div class="value-icon">⚡</div>
+                                    <div class="value-text">
+                                        <div class="value-title">5 minut</div>
+                                        <div class="value-desc">od nápadu k hotovému webu</div>
+                                    </div>
                                 </div>
-                                <div class="feature-row">
-                                    <span class="feature-icon">📱</span>
-                                    <span class="feature-text">Responzivní design</span>
-                                    <span class="feature-status">✓</span>
+                                <div class="value-item">
+                                    <div class="value-icon">🎨</div>
+                                    <div class="value-text">
+                                        <div class="value-title">1000+ šablon</div>
+                                        <div class="value-desc">AI-generovaných designů</div>
+                                    </div>
                                 </div>
-                                <div class="feature-row">
-                                    <span class="feature-icon">🎨</span>
-                                    <span class="feature-text">AI styly</span>
-                                    <span class="feature-status">⏳</span>
+                                <div class="value-item">
+                                    <div class="value-icon">📱</div>
+                                    <div class="value-text">
+                                        <div class="value-title">100% responzivní</div>
+                                        <div class="value-desc">mobil, tablet, desktop</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="web-preview">
-                                <div class="preview-label">📈 Pokrok: 85%</div>
                             </div>
                         </div>
                         <div class="card-glow"></div>
@@ -249,7 +265,7 @@
                             <div class="icon-glow"></div>
                         </div>
                         <div class="product-status premium">✨ Beta Program</div>
-                        <h3>SmartCall AI</h3>
+                        <h3>SmartCall</h3>
                         <div class="product-tagline">Váš AI recepční, který nikdy nespí</div>
                         <p>Revolucionizujte zákaznický servis s pokročilým AI asistentem. Automaticky přijímá hovory 24/7, rezervuje stoly a poskytuje přirozené konverzace, které vaše zákazníky nadchnou.</p>
                         <div class="benefits-grid">
@@ -263,15 +279,15 @@
                             <div class="benefit-item">
                                 <span class="benefit-icon">⚡</span>
                                 <div class="benefit-text">
-                                    <strong>0,3 sekundy</strong>
+                                    <strong>0.3 sekundy</strong>
                                     <span>průměrná doba odpovědi</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
                                 <span class="benefit-icon">🎯</span>
                                 <div class="benefit-text">
-                                    <strong>99,2% přesnost</strong>
-                                    <span>v rezervacích</span>
+                                    <strong>99.2% přesnost</strong>
+                                    <span>v rezervacích a objednávkách</span>
                                 </div>
                             </div>
                         </div>
@@ -290,33 +306,33 @@
                     <div class="card-ribbon">💰 Nejvýdelnější</div>
                     <div class="card-content">
                         <div class="card-icon-container">
-                            <div class="card-icon large">💎</div>
+                            <div class="card-icon large">🛡️</div>
                             <div class="icon-glow"></div>
                         </div>
                         <div class="product-status premium">✨ Early Access</div>
-                        <h3>FinanceIQ Pro</h3>
-                        <div class="product-tagline">Detektiv pro vaše finance, který nikdy nespí</div>
+                        <h3>FinanceGuard</h3>
+                        <div class="product-tagline">AI detektiv pro vaše finance</div>
                         <p>Odhalte skryté vzory ve vašich datech a chráňte své finance. AI systém analyzuje tisíce transakcí za vteřinu a automaticky detekuje podvodné aktivity.</p>
                         <div class="benefits-grid">
                             <div class="benefit-item">
                                 <span class="benefit-icon">🔍</span>
                                 <div class="benefit-text">
-                                    <strong>Detekuje 99,8%</strong>
-                                    <span>podvodných transakcí</span>
+                                    <strong>99.8% úspěšnost</strong>
+                                    <span>detekce podvodů a chyb</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
                                 <span class="benefit-icon">📈</span>
                                 <div class="benefit-text">
                                     <strong>Ušetří až 65%</strong>
-                                    <span>času účetních</span>
+                                    <span>času účetních a CFO</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
                                 <span class="benefit-icon">⚡</span>
                                 <div class="benefit-text">
-                                    <strong>Analýza za 2s</strong>
-                                    <span>tisíců transakcí</span>
+                                    <strong>2 sekundy</strong>
+                                    <span>analýza tisíců transakcí</span>
                                 </div>
                             </div>
                         </div>
@@ -335,11 +351,11 @@
                     <div class="card-ribbon">🚀 Nejrychlejší</div>
                     <div class="card-content">
                         <div class="card-icon-container">
-                            <div class="card-icon large">🌐</div>
+                            <div class="card-icon large">🚀</div>
                             <div class="icon-glow"></div>
                         </div>
                         <div class="product-status premium">✨ Beta Program</div>
-                        <h3>WebCraft AI</h3>
+                        <h3>WebBoost</h3>
                         <div class="product-tagline">Od nápadu k webu za 5 minut</div>
                         <p>Revoluce ve tvorbě webových stránek! Stačí popsat svou vizi a AI vytvoří kompletní profesionální web s moderním designem, který začne fungovat okamžitě.</p>
                         <div class="benefits-grid">
@@ -347,21 +363,21 @@
                                 <span class="benefit-icon">⚡</span>
                                 <div class="benefit-text">
                                     <strong>5 minut</strong>
-                                    <span>od nápadu k webu</span>
+                                    <span>od nápadu k hotovému webu</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
                                 <span class="benefit-icon">🎨</span>
                                 <div class="benefit-text">
                                     <strong>1000+ šablon</strong>
-                                    <span>AI-generovaných</span>
+                                    <span>AI-generovaných designů</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <span class="benefit-icon">💱</span>
+                                <span class="benefit-icon">📱</span>
                                 <div class="benefit-text">
                                     <strong>100% responzivní</strong>
-                                    <span>všechna zařízení</span>
+                                    <span>mobil, tablet, desktop</span>
                                 </div>
                             </div>
                         </div>
@@ -375,6 +391,16 @@
                     <div class="card-glow premium"></div>
                 </div>
                 
+            </div>
+            
+            <!-- How it works button -->
+            <div class="solutions-cta">
+                <button class="btn btn-secondary btn-large" onclick="window.location.href='produkty.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/>
+                    </svg>
+                    <span>Jak naše produkty fungují</span>
+                </button>
             </div>
         </div>
     </section>
@@ -576,7 +602,7 @@
             </div>
             
             <div class="blog-cta">
-                <button class="btn btn-secondary">
+                <button class="btn btn-secondary" onclick="window.location.href='blog.html'">
                     <span>Více článků</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
@@ -667,9 +693,9 @@
                             <label for="interest">Zájem o *</label>
                             <select id="interest" name="interest" required>
                                 <option value="">Vyberte produkt</option>
-                                <option value="ai-phone">AI Telefonní Asistent</option>
-                                <option value="ai-accounting">AI Analýza Účetnictví</option>
-                                <option value="web-creation">Tvorba Webových Stránek</option>
+                                <option value="ai-phone">SmartCall</option>
+                                <option value="ai-accounting">FinanceGuard</option>
+                                <option value="web-creation">WebBoost</option>
                                 <option value="consultation">Konzultace</option>
                                 <option value="other">Jiné</option>
                             </select>
@@ -742,6 +768,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="./script.js?v=1.0"></script>
 </body>
 </html>

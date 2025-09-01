@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced scroll animations
     addScrollAnimationStyles();
     initializeEnhancedScrollAnimations();
+    
 });
 
 // ===== SCROLL TO CONTACT FUNCTION =====
@@ -113,7 +114,6 @@ function initializeInteractions() {
             
             if (target) {
                 target.scrollIntoView({
-                    behavior: 'smooth',
                     block: 'start'
                 });
             }
@@ -925,8 +925,7 @@ function initializeSmoothScroll() {
                 // Add offset for fixed navbar
                 const offsetTop = target.offsetTop - 80;
                 window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                    top: offsetTop
                 });
             }
         });
@@ -990,6 +989,273 @@ function showFormMessage(message, type) {
     }, 5000);
 }
 
+// ===== SIMULATED PHONE CALL FUNCTIONALITY =====
+function startSimulatedCall() {
+    const incomingCall = document.getElementById('incomingCall');
+    const activeCall = document.getElementById('activeCall');
+    const conversationMessages = document.getElementById('conversationMessages');
+    const conversionSuccess = document.getElementById('conversionSuccess');
+    
+    if (!incomingCall || !activeCall) return;
+    
+    // Hide incoming call, show active call
+    incomingCall.style.display = 'none';
+    activeCall.style.display = 'flex';
+    
+    // Start call timer
+    let callDuration = 0;
+    const callTimeElement = activeCall.querySelector('.call-time');
+    
+    const callTimer = setInterval(() => {
+        callDuration++;
+        const minutes = Math.floor(callDuration / 60);
+        const seconds = callDuration % 60;
+        if (callTimeElement) {
+            callTimeElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+    }, 1000);
+    
+    // Conversation messages sequence
+    const messages = [
+        { type: 'ai', text: 'Dobrý den! Děkuji za zavolání do restaurace U Kamene. Jak vám mohu pomoci?', delay: 1000 },
+        { type: 'customer', text: 'Ahoj, chtěl bych rezervovat stůl na zítřejší večer pro 6 osob.', delay: 3000 },
+        { type: 'ai', text: 'Samozřejmě! Pro kolik hodin byste si představoval rezervaci?', delay: 2000 },
+        { type: 'customer', text: 'Kolem 19:00, pokud to bude možné.', delay: 2500 },
+        { type: 'ai', text: 'Perfektní! Na 19:00 máme volno. Na jaké jméno mám rezervaci napsat?', delay: 2000 },
+        { type: 'customer', text: 'Jan Novák, telefon 777 123 456.', delay: 2000 },
+        { type: 'ai', text: '✅ Výborně! Rezervace pro pana Nováka na zítřek 19:00 pro 6 osob je potvrzena. Těšíme se na vás!', delay: 3000 }
+    ];
+    
+    let messageIndex = 0;
+    
+    function addNextMessage() {
+        if (messageIndex >= messages.length) {
+            // Show conversion success
+            setTimeout(() => {
+                if (conversionSuccess) {
+                    conversionSuccess.style.display = 'block';
+                    conversionSuccess.style.animation = 'slideInUp 0.5s ease-out';
+                }
+                
+                // Clear timer after success
+                setTimeout(() => {
+                    clearInterval(callTimer);
+                }, 2000);
+            }, 1000);
+            return;
+        }
+        
+        const message = messages[messageIndex];
+        
+        setTimeout(() => {
+            const messageEl = document.createElement('div');
+            messageEl.className = `message ${message.type}-message`;
+            messageEl.textContent = message.text;
+            
+            if (conversationMessages) {
+                conversationMessages.appendChild(messageEl);
+                conversationMessages.scrollTop = conversationMessages.scrollHeight;
+            }
+            
+            messageIndex++;
+            addNextMessage();
+        }, message.delay);
+    }
+    
+    // Start conversation
+    addNextMessage();
+}
+
+// ===== ENHANCED AI ANALYSIS LOADING =====
+function initializeEnhancedAnalysisLoading() {
+    const loadingElement = document.getElementById('aiAnalysisLoading');
+    const resultsElement = document.getElementById('analyticsResults');
+    
+    if (!loadingElement || !resultsElement) return;
+    
+    // Auto-start analysis after page load
+    setTimeout(() => {
+        startAnalysisSequence();
+    }, 3000);
+}
+
+function startAnalysisSequence() {
+    const step1 = document.getElementById('scanStep1');
+    const step2 = document.getElementById('scanStep2');
+    const step3 = document.getElementById('scanStep3');
+    const loadingElement = document.getElementById('aiAnalysisLoading');
+    const resultsElement = document.getElementById('analyticsResults');
+    const liveDiscoveries = document.getElementById('liveDiscoveries');
+    
+    // Step 1: Data loading
+    setTimeout(() => {
+        if (step1) {
+            step1.classList.add('active');
+            step1.querySelector('.step-text').textContent = 'Načítám 1,247 transakcí...';
+        }
+    }, 500);
+    
+    // Step 2: Fraud detection
+    setTimeout(() => {
+        if (step1) {
+            step1.classList.remove('active');
+            step1.classList.add('completed');
+            step1.querySelector('.step-text').textContent = 'Transakce načteny ✓';
+        }
+        if (step2) {
+            step2.classList.add('active');
+            step2.querySelector('.step-text').textContent = 'Detekuji podvodné vzory...';
+        }
+        
+        // Add live discovery
+        if (liveDiscoveries) {
+            const discovery1 = liveDiscoveries.children[0];
+            if (discovery1) {
+                discovery1.style.animation = 'discoverySlideIn 0.5s ease-out';
+                discovery1.style.opacity = '1';
+            }
+        }
+    }, 2500);
+    
+    // Step 3: Savings opportunities
+    setTimeout(() => {
+        if (step2) {
+            step2.classList.remove('active');
+            step2.classList.add('completed');
+            step2.querySelector('.step-text').textContent = 'Podvody identifikovány ✓';
+        }
+        if (step3) {
+            step3.classList.add('active');
+            step3.querySelector('.step-text').textContent = 'Hledám úsporné příležitosti...';
+        }
+        
+        // Add more discoveries
+        if (liveDiscoveries) {
+            const discovery2 = liveDiscoveries.children[1];
+            const discovery3 = liveDiscoveries.children[2];
+            if (discovery2) {
+                setTimeout(() => {
+                    discovery2.style.animation = 'discoverySlideIn 0.5s ease-out';
+                    discovery2.style.opacity = '1';
+                }, 500);
+            }
+            if (discovery3) {
+                setTimeout(() => {
+                    discovery3.style.animation = 'discoverySlideIn 0.5s ease-out';
+                    discovery3.style.opacity = '1';
+                }, 1000);
+            }
+        }
+    }, 4500);
+    
+    // Complete analysis and show results
+    setTimeout(() => {
+        if (step3) {
+            step3.classList.remove('active');
+            step3.classList.add('completed');
+            step3.querySelector('.step-text').textContent = 'Analýza dokončena ✓';
+        }
+        
+        // Transition to results
+        setTimeout(() => {
+            if (loadingElement && resultsElement) {
+                loadingElement.style.opacity = '0';
+                loadingElement.style.transform = 'translateY(-20px)';
+                
+                setTimeout(() => {
+                    loadingElement.style.display = 'none';
+                    resultsElement.style.display = 'flex';
+                    resultsElement.style.opacity = '0';
+                    resultsElement.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        resultsElement.style.opacity = '1';
+                        resultsElement.style.transform = 'translateY(0)';
+                        resultsElement.style.transition = 'all 0.6s ease-out';
+                        
+                        // Animate chart bars
+                        const chartBars = resultsElement.querySelectorAll('.bar');
+                        chartBars.forEach((bar, index) => {
+                            setTimeout(() => {
+                                bar.style.animation = 'barGrow 1s ease-out forwards';
+                            }, index * 200);
+                        });
+                    }, 100);
+                }, 400);
+            }
+        }, 1000);
+    }, 6500);
+}
+
+// ===== AUTO-RESTART SIMULATED CALL =====
+function initializeCallAutoRestart() {
+    // Restart call simulation every 30 seconds
+    setInterval(() => {
+        const incomingCall = document.getElementById('incomingCall');
+        const activeCall = document.getElementById('activeCall');
+        const conversationMessages = document.getElementById('conversationMessages');
+        const conversionSuccess = document.getElementById('conversionSuccess');
+        
+        if (incomingCall && activeCall) {
+            // Reset to initial state
+            incomingCall.style.display = 'flex';
+            activeCall.style.display = 'none';
+            
+            if (conversationMessages) {
+                conversationMessages.innerHTML = '';
+            }
+            if (conversionSuccess) {
+                conversionSuccess.style.display = 'none';
+            }
+        }
+    }, 30000); // Restart every 30 seconds
+}
+
+// ===== AUTO-RESTART ANALYSIS =====
+function initializeAnalysisAutoRestart() {
+    // Restart analysis every 25 seconds
+    setInterval(() => {
+        const loadingElement = document.getElementById('aiAnalysisLoading');
+        const resultsElement = document.getElementById('analyticsResults');
+        const liveDiscoveries = document.getElementById('liveDiscoveries');
+        
+        if (loadingElement && resultsElement) {
+            // Reset to loading state
+            loadingElement.style.display = 'flex';
+            loadingElement.style.opacity = '1';
+            loadingElement.style.transform = 'translateY(0)';
+            
+            resultsElement.style.display = 'none';
+            resultsElement.style.opacity = '0';
+            
+            // Reset steps
+            const steps = [
+                document.getElementById('scanStep1'),
+                document.getElementById('scanStep2'),
+                document.getElementById('scanStep3')
+            ];
+            
+            steps.forEach(step => {
+                if (step) {
+                    step.classList.remove('active', 'completed');
+                }
+            });
+            
+            // Reset discoveries
+            if (liveDiscoveries) {
+                Array.from(liveDiscoveries.children).forEach(item => {
+                    item.style.opacity = '0';
+                });
+            }
+            
+            // Restart analysis
+            setTimeout(() => {
+                startAnalysisSequence();
+            }, 1000);
+        }
+    }, 25000); // Restart every 25 seconds
+}
+
 // ===== FINAL INITIALIZATION =====
 // ===== SIMPLE SMOOTH SCROLL =====
 function initializeSmoothScroll() {
@@ -1000,8 +1266,7 @@ function initializeSmoothScroll() {
             if (target) {
                 const offsetTop = target.offsetTop - 80;
                 window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                    top: offsetTop
                 });
             }
         });
