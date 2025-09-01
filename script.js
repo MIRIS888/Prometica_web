@@ -1259,16 +1259,39 @@ function initializeAnalysisAutoRestart() {
 // ===== FINAL INITIALIZATION =====
 // ===== SIMPLE SMOOTH SCROLL =====
 function initializeSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Handle both internal # links and cross-page links to index.html
+    document.querySelectorAll('a[href^="#"], a[href*="index.html#"], a[href*="/#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop
-                });
+            const href = this.getAttribute('href');
+            let targetHash = '';
+            
+            // Extract hash from different link formats
+            if (href.startsWith('#')) {
+                targetHash = href;
+            } else if (href.includes('index.html#')) {
+                targetHash = href.split('index.html')[1];
+            } else if (href.includes('/#')) {
+                targetHash = href.split('/#')[1];
+                targetHash = '#' + targetHash;
             }
+            
+            // Check if we're on the same page or if target exists
+            const isCurrentPage = window.location.pathname.endsWith('index.html') || 
+                                 window.location.pathname.endsWith('/') ||
+                                 window.location.pathname.includes('index');
+            
+            if (isCurrentPage && targetHash) {
+                const target = document.querySelector(targetHash);
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            // For cross-page navigation, let default behavior handle the navigation
         });
     });
 }
@@ -1278,6 +1301,20 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeBlogInteractions();
     initializeSmoothScroll();
     initializeContactForm();
+    
+    // Handle hash in URL on page load
+    if (window.location.hash) {
+        setTimeout(() => {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }, 300); // Delay to ensure page is fully loaded
+    }
     
     // Add any final initialization code here
     setTimeout(() => {
