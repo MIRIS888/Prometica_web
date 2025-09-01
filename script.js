@@ -12,7 +12,44 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeParticles();
     initializeIntersectionObserver();
     initializeSmoothScroll();
+    initializeAnalyticsAnimation();
+    initializeChatAnimation();
+    
+    // Enhanced scroll animations
+    addScrollAnimationStyles();
+    initializeEnhancedScrollAnimations();
 });
+
+// ===== SCROLL TO CONTACT FUNCTION =====
+function scrollToContact(productType) {
+    // Scroll to contact section
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // Pre-select the product in the form after a short delay
+        setTimeout(() => {
+            const interestSelect = document.querySelector('#interest');
+            if (interestSelect) {
+                interestSelect.value = productType;
+                
+                // Add focus effect to the form
+                const contactForm = document.querySelector('#contactForm');
+                if (contactForm) {
+                    contactForm.style.transform = 'scale(1.02)';
+                    contactForm.style.transition = 'transform 0.3s ease';
+                    
+                    setTimeout(() => {
+                        contactForm.style.transform = 'scale(1)';
+                    }, 500);
+                }
+            }
+        }, 800);
+    }
+}
 
 // ===== CURSOR GLOW EFFECT =====
 function initializeCursor() {
@@ -478,6 +515,297 @@ function initializeContactAnimations() {
 
 // Initialize contact animations
 document.addEventListener('DOMContentLoaded', initializeContactAnimations);
+
+// ===== ANALYTICS ANIMATION =====
+function initializeAnalyticsAnimation() {
+    // Try new simple preview first
+    const previewTitle = document.querySelector('.preview-title');
+    const dataPoints = document.querySelectorAll('.data-point');
+    
+    if (previewTitle && dataPoints.length > 0) {
+        const resultsContainer = document.querySelector('.results-container');
+        
+        // New simple animation
+        setTimeout(() => {
+            previewTitle.textContent = 'Zpracovávám data...';
+            
+            setTimeout(() => {
+                previewTitle.textContent = 'Analýza dokončena ✓';
+                previewTitle.style.color = '#22c55e';
+                
+                // Show results
+                setTimeout(() => {
+                    previewTitle.style.opacity = '0';
+                    document.querySelector('.preview-animation').style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        if (resultsContainer) {
+                            resultsContainer.style.opacity = '1';
+                            resultsContainer.style.transition = 'opacity 0.8s ease';
+                            
+                            // Animate header first
+                            const resultsHeader = resultsContainer.querySelector('.results-header');
+                            if (resultsHeader) {
+                                setTimeout(() => {
+                                    resultsHeader.style.opacity = '1';
+                                    resultsHeader.style.transform = 'translateY(0)';
+                                }, 200);
+                            }
+                            
+                            // Animate result metrics one by one
+                            const resultMetrics = resultsContainer.querySelectorAll('.result-metric');
+                            resultMetrics.forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.style.transform = 'translateY(0)';
+                                    item.style.opacity = '1';
+                                }, 500 + (index * 150));
+                            });
+                        }
+                    }, 300);
+                }, 1000);
+            }, 3000);
+        }, 2000);
+        return;
+    }
+    
+    // Fallback to old animation
+    const progressBar = document.getElementById('progressBar');
+    const progressPercent = document.getElementById('progressPercent');
+    const progressLabel = document.getElementById('progressLabel');
+    const metricsContainer = document.getElementById('metricsContainer');
+    const insightText = document.getElementById('insightText');
+    
+    if (!progressBar || !progressPercent || !progressLabel) return;
+    
+    // Start animation after 2 seconds
+    setTimeout(() => {
+        let progress = 0;
+        const duration = 3000; // 3 seconds
+        const startTime = Date.now();
+        
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            progress = Math.min((elapsed / duration) * 100, 100);
+            
+            progressBar.style.width = progress + '%';
+            progressPercent.textContent = Math.round(progress) + '%';
+            
+            // Update label based on progress
+            if (progress < 30) {
+                progressLabel.textContent = 'Načítám data...';
+            } else if (progress < 60) {
+                progressLabel.textContent = 'Analyzuji faktury...';
+            } else if (progress < 90) {
+                progressLabel.textContent = 'Hledám duplicity...';
+            } else if (progress < 100) {
+                progressLabel.textContent = 'Dokončuji analýzu...';
+            } else {
+                progressLabel.textContent = 'Analýza dokončena';
+                
+                // Show results after completion
+                setTimeout(() => {
+                    metricsContainer.style.opacity = '1';
+                    metricsContainer.style.transition = 'opacity 0.8s ease';
+                }, 300);
+                
+                setTimeout(() => {
+                    insightText.style.opacity = '1';
+                    insightText.style.transition = 'opacity 0.8s ease';
+                }, 800);
+                
+                return;
+            }
+            
+            requestAnimationFrame(animate);
+        };
+        
+        animate();
+    }, 2000);
+}
+
+// ===== CHAT ANIMATION =====
+function initializeChatAnimation() {
+    const messageThread = document.querySelector('.message-thread');
+    const messages = document.querySelectorAll('.message');
+    
+    if (!messageThread || messages.length === 0) return;
+    
+    // Hide all messages initially
+    messages.forEach(message => {
+        message.style.opacity = '0';
+        message.style.transform = 'translateY(20px)';
+        message.style.animation = 'none';
+    });
+    
+    // Function to show messages sequentially
+    function showMessages() {
+        messages.forEach((message, index) => {
+            setTimeout(() => {
+                message.style.opacity = '1';
+                message.style.transform = 'translateY(0)';
+                message.style.transition = 'all 0.5s ease';
+                
+                // Add typing indicator for AI messages
+                if (message.classList.contains('ai-message') && index > 0) {
+                    const messageText = message.querySelector('.message-text');
+                    const originalText = messageText.innerHTML;
+                    
+                    // Show typing indicator briefly
+                    messageText.innerHTML = '<span style="opacity: 0.6;">Píše...</span>';
+                    
+                    setTimeout(() => {
+                        messageText.innerHTML = originalText;
+                    }, 1000);
+                }
+            }, index * 2000); // 2 second delay between messages
+        });
+    }
+    
+    // Start animation after 2 seconds
+    setTimeout(showMessages, 2000);
+}
+
+// ===== ENHANCED SCROLL ANIMATIONS =====
+function initializeEnhancedScrollAnimations() {
+    // Create intersection observer for scroll animations
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const animationType = element.dataset.scroll || 'fadeInUp';
+                const delay = parseInt(element.dataset.delay) || 0;
+                
+                // Use requestAnimationFrame for smoother animations
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        element.classList.add('animate');
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, delay);
+                });
+                
+                scrollObserver.unobserve(element);
+            }
+        });
+    }, { 
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
+    });
+    
+    // Add scroll animation classes to elements
+    const elementsToAnimate = [
+        // Section headers
+        '.section-header',
+        '.section-title',
+        '.section-subtitle',
+        '.section-badge',
+        
+        // Content elements
+        '.solution-card',
+        '.tech-item',
+        '.story-card',
+        '.team-member',
+        '.blog-post',
+        '.contact-method',
+        '.form-group',
+        
+        // Hero elements (delayed)
+        '.hero-title .title-line',
+        '.hero-subtitle',
+        '.hero-buttons',
+        '.hero-stats',
+        '.cards-title',
+        
+        // Other elements
+        '.metric-item',
+        '.feature-row',
+        '.progress-section'
+    ];
+    
+    // Set initial styles and observe elements
+    elementsToAnimate.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach((element, index) => {
+            // Set initial state
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            
+            // Set staggered delay for multiple elements (reduced delays)
+            element.dataset.delay = Math.min(index * 80, 400); // Max delay 400ms
+            
+            // Set animation type based on element
+            if (element.classList.contains('title-line')) {
+                element.dataset.scroll = 'slideInUp';
+                element.dataset.delay = index * 150;
+            } else if (element.classList.contains('solution-card')) {
+                element.dataset.scroll = 'fadeInScale';
+                element.dataset.delay = index * 120;
+            } else if (element.classList.contains('tech-item')) {
+                element.dataset.scroll = 'fadeInUp';
+                element.dataset.delay = index * 60;
+            }
+            
+            scrollObserver.observe(element);
+        });
+    });
+}
+
+// Add new animation keyframes to CSS
+function addScrollAnimationStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
+}
 
 // ===== SOLUTION CARDS HOVER EFFECTS =====
 document.querySelectorAll('.solution-card').forEach(card => {

@@ -12,7 +12,8 @@
       "Bash(start http://localhost:8080)",
       "Bash(curl:*)",
       "Bash(git restore:*)",
-      "Bash(start http://localhost:8080?cache=bust)"
+      "Bash(start http://localhost:8080?cache=bust)",
+      "Bash(npm start)"
     ],
     "deny": [],
     "ask": []
