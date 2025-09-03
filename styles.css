@@ -342,15 +342,20 @@ body {
 .nav-link-hover {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
     width: 0%;
-    height: 2px;
-    background: #6366f1;
-    transition: width 0.3s ease;
+    height: 3px;
+    background: linear-gradient(90deg, #f59e0b, #f97316);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
 }
 
 .nav-link:hover {
-    color: #ffffff;
+    color: #f59e0b;
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
 }
 
 .nav-link:hover .nav-link-hover {
@@ -359,19 +364,21 @@ body {
 
 .nav-cta {
     position: relative;
-    background: #6366f1;
+    background: linear-gradient(45deg, #f59e0b, #f97316);
     color: white;
     padding: 0.7rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
 }
 
 .nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+    background: linear-gradient(45deg, #f97316, #ea580c);
 }
 
 .btn-glow {
@@ -380,14 +387,15 @@ body {
     left: 50%;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(245, 158, 11, 0.1) 50%, transparent 70%);
     border-radius: 50px;
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.6s ease;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-cta:hover .btn-glow {
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.5) rotate(45deg);
+    opacity: 0.8;
 }
 
 /* ===== MOBILE MENU ===== */
@@ -541,11 +549,10 @@ body {
 }
 
 .subtitle-emphasis {
-    background: linear-gradient(45deg, #f59e0b, #d97706);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
     font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
 }
 
 .hero-value-props {
@@ -700,18 +707,7 @@ body {
 }
 
 .badge-glow {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    display: none;
 }
 
 .hero-title {
@@ -733,7 +729,7 @@ body {
 .title-line:nth-child(3) { animation-delay: 0.6s; }
 
 .gradient-text {
-    background: linear-gradient(135deg, #6366f1, #7c3aed, #8b5cf6);
+    background: linear-gradient(135deg, #f59e0b, #f97316, #ea580c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -750,6 +746,13 @@ body {
     margin-right: auto;
     text-align: center;
     animation: slideInUp 0.8s ease-out 0.8s both;
+}
+
+.hero-subtitle strong {
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
 }
 
 /* ===== BUTTONS ===== */
@@ -777,13 +780,14 @@ body {
 }
 
 .btn-primary {
-    background: #6366f1;
+    background: linear-gradient(45deg, #f59e0b, #f97316);
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 40px rgba(245, 158, 11, 0.4);
+    background: linear-gradient(45deg, #f97316, #ea580c);
 }
 
 .btn-secondary {
@@ -2544,9 +2548,9 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #6366f1;
+    border-color: #f59e0b;
     background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
 }
 
 .form-group input::placeholder,
@@ -2603,15 +2607,27 @@ body {
     position: relative;
     display: inline-flex;
     align-items: center;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.1));
+    border: 1px solid rgba(245, 158, 11, 0.4);
     border-radius: 50px;
     padding: 0.5rem 1rem;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
     font-weight: 500;
+    color: #f59e0b;
     overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(245, 158, 11, 0.2);
 }
+
+.section-badge:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(249, 115, 22, 0.2));
+    border: 1px solid rgba(245, 158, 11, 0.6);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+    color: #ea580c;
+}
+
 
 .section-title {
     font-size: 3rem;
@@ -2846,7 +2862,7 @@ body {
 }
 
 .chat-btn {
-    background: linear-gradient(45deg, #6366f1, #8b5cf6);
+    background: linear-gradient(45deg, #f59e0b, #f97316);
     color: white;
 }
 
@@ -3315,8 +3331,8 @@ body {
 
 .solution-btn {
     background: transparent;
-    color: #6366f1;
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
@@ -3329,8 +3345,8 @@ body {
 }
 
 .solution-btn:hover {
-    background: rgba(99, 102, 241, 0.1);
-    border-color: #6366f1;
+    background: rgba(245, 158, 11, 0.1);
+    border-color: #f59e0b;
     transform: translateX(5px);
 }
 
@@ -3352,7 +3368,7 @@ body {
     position: absolute;
     top: 20px;
     right: -10px;
-    background: linear-gradient(45deg, #6366f1, #8b5cf6);
+    background: linear-gradient(45deg, #f59e0b, #f97316);
     color: white;
     padding: 8px 20px 8px 15px;
     font-size: 0.8rem;
