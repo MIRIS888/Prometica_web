@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Novinky a vývojový blog - Prometica</title>
     <link rel="stylesheet" href="./styles.css?v=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="redirect-blog.js"></script>
 </head>
 <body>
     <!-- Background Elements -->
@@ -27,15 +28,15 @@
                     <span class="nav-link-text">Domů</span>
                     <span class="nav-link-hover"></span>
                 </a>
-                <a href="index.html#solutions" class="nav-link">
+                <a href="produkty.html" class="nav-link">
                     <span class="nav-link-text">Produkty</span>
                     <span class="nav-link-hover"></span>
                 </a>
-                <a href="index.html#about" class="nav-link">
+                <a href="about_us.html" class="nav-link">
                     <span class="nav-link-text">O nás</span>
                     <span class="nav-link-hover"></span>
                 </a>
-                <a href="index.html#blog" class="nav-link active">
+                <a href="blog.html" class="nav-link active">
                     <span class="nav-link-text">Blog</span>
                     <span class="nav-link-hover"></span>
                 </a>
@@ -52,16 +53,25 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Vývojový</span>
+                    <span class="title-line gradient-text" style="overflow: visible; line-height: 1.2;">Blog</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Sledujte naše nejnovější produkty, technologie a novinky ze světa AI<br>
+                    přímo od našich vývojářů a zakladatelů
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Blog Section -->
     <section class="blog-detail">
         <div class="container">
-            <div class="page-header">
-                <div class="product-breadcrumb">
-                    <a href="index.html">Domů</a> / <a href="index.html#blog">Blog</a> / Všechny články
-                </div>
-                <h1>Blog & Novinky</h1>
-                <p class="page-subtitle">Sledujte naše nejnovější produkty, technologie a novinky ze světa AI</p>
-            </div>
 
             <!-- Latest News -->
             <div class="blog-section" id="latest">

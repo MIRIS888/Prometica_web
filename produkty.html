@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jak naše produkty fungují - Prometica</title>
     <link rel="stylesheet" href="./styles.css?v=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Background Elements -->
@@ -27,15 +27,15 @@
                     <span class="nav-link-text">Domů</span>
                     <span class="nav-link-hover"></span>
                 </a>
-                <a href="index.html#solutions" class="nav-link">
+                <a href="produkty.html" class="nav-link">
                     <span class="nav-link-text">Produkty</span>
                     <span class="nav-link-hover"></span>
                 </a>
-                <a href="index.html#about" class="nav-link">
+                <a href="about_us.html" class="nav-link">
                     <span class="nav-link-text">O nás</span>
                     <span class="nav-link-hover"></span>
                 </a>
-                <a href="index.html#blog" class="nav-link">
+                <a href="blog.html" class="nav-link">
                     <span class="nav-link-text">Blog</span>
                     <span class="nav-link-hover"></span>
                 </a>
@@ -52,16 +52,26 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Jak naše</span>
+                    <span class="title-line gradient-text">AI produkty</span>
+                    <span class="title-line">fungují</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Detailní pohled na funkčnost našich AI řešení a jejich praktické využití<br>
+                    pro český trh a moderní firmy
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Product Detail Section -->
     <section class="product-detail">
         <div class="container">
-            <div class="page-header">
-                <div class="product-breadcrumb">
-                    <a href="index.html">Domů</a> / <a href="index.html#solutions">Produkty</a> / Jak naše produkty fungují
-                </div>
-                <h1>Jak naše produkty fungují</h1>
-                <p class="page-subtitle">Detailní pohled na funkčnost našich AI řešení a jejich praktické využití</p>
-            </div>
 
             <!-- SmartCall AI -->
             <div class="product-section" id="smartcall">
@@ -266,6 +276,7 @@
     </footer>
 
     <script src="./script.js?v=1.0"></script>
+    <script src="redirect-blog.js"></script>
     <script>
         // Mobile menu functionality
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
