@@ -615,13 +615,14 @@ Vytváříme řešení, která skutečně
                                 <div class="method-value">info@prometica.cz</div>
                             </div>
                         </div>
-                        <div class="contact-method">
+                        <!-- Telefonní číslo dočasně skryto -->
+                        <!-- <div class="contact-method">
                             <div class="method-icon">📱</div>
                             <div class="method-info">
                                 <div class="method-title">Telefon</div>
                                 <div class="method-value">+420 123 456 789</div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="contact-method">
                             <div class="method-icon">🕐</div>
                             <div class="method-info">
@@ -718,17 +719,58 @@ Vytváříme řešení, která skutečně
                     <h4>Kontakt</h4>
                     <ul>
                         <li>info@prometica.cz</li>
-                        <li>+420 123 456 789</li>
+                        <!-- <li>+420 123 456 789</li> -->
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Prometica. Všechna práva vyhrazena.</p>
+                <p>&copy; 2025 Prometica. Všechna práva vyhrazena.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>🍪 Používáme cookies</h4>
+                <p>Používáme cookies pro zlepšení vašeho zážitku na našem webu. Pokračováním v prohlížení souhlasíte s jejich používáním.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="btn btn-primary btn-small">
+                    <span>Přijmout</span>
+                </button>
+                <button id="declineCookies" class="btn btn-secondary btn-small">
+                    <span>Odmítnout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="./script.js?v=1.0"></script>
     <script src="redirect-blog.js"></script>
+    <script>
+        // Cookie Consent functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const declineBtn = document.getElementById('declineCookies');
+
+            // Check if user has already made a choice
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieConsent.style.display = 'flex';
+            }
+
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.style.display = 'none';
+            });
+
+            declineBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'declined');
+                cookieConsent.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
