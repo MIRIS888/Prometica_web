@@ -5198,11 +5198,13 @@ body {
 }
 
 .key-benefits {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     margin-bottom: 2rem;
-    flex-wrap: wrap;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .benefit-compact {
@@ -5214,7 +5216,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     transition: all 0.3s ease;
-    min-width: 200px;
+    width: 100%;
 }
 
 .benefit-compact:hover {
