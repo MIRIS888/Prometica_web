@@ -7,9 +7,14 @@
 
 html {
     scroll-padding-top: 80px; /* Offset for fixed navbar */
+    scroll-behavior: smooth;
 }
 
-/* Smooth scrolling handled by JavaScript */
+/* Performance optimizations for smooth scrolling */
+* {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -40,7 +45,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0.01em;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
+
+
 
 .container {
     max-width: 1400px;
@@ -64,8 +74,8 @@ body {
         1200px 800px, 
         1000px 1200px, 
         800px 600px;
-    animation: floatingLights 50s ease-in-out infinite alternate;
-    will-change: background-position;
+    transform: translateZ(0);
+    will-change: auto;
     z-index: -2;
 }
 
@@ -81,8 +91,8 @@ body {
         linear-gradient(45deg, rgba(59, 130, 246, 0.015) 0%, transparent 40%),
         radial-gradient(ellipse 120% 80% at 50% 50%, rgba(147, 51, 234, 0.008) 0%, transparent 70%);
     z-index: -1;
-    animation: gradientFlow 45s ease-in-out infinite;
-    will-change: transform, opacity;
+    transform: translateZ(0);
+    will-change: auto;
 }
 
 .cursor-glow {

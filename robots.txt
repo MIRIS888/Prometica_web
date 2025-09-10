@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Hlavní sitemap
+Sitemap: https://prometica.cz/sitemap.xml
+
+# Optimalizace pro vyhledávače
+Crawl-delay: 1
+
+# Blokování nepotřebných souborů
+Disallow: /assets/temp/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /redirect-blog.js
