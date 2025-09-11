@@ -1,1 +1,23 @@
+name: Deploy Website
 
+on:
+  push:
+    branches: [ main ]  # nebo master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: 22
+        script: |
+          cd /var/www/html/Prometica_web
+          git pull origin main
+          sudo chown -R www-data:www-data /var/www/html/Prometica_web
+          sudo chmod -R 755 /var/www/html/Prometica_web
