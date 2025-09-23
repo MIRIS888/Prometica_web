@@ -1,0 +1,186 @@
+/* Light Rays Background Effect */
+.light-rays-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 1.0;
+    mix-blend-mode: screen;
+}
+
+/* Background light rays for hero sections */
+.hero-background-rays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0.8;
+    mix-blend-mode: screen;
+}
+
+/* About page specific rays */
+.about-hero .hero-background-rays {
+    opacity: 0.6;
+}
+
+/* Product page specific rays */
+.product-detail .hero-background-rays {
+    opacity: 0.7;
+}
+
+/* Blog page specific rays */
+.blog-detail .hero-background-rays {
+    opacity: 0.5;
+}
+
+/* Section background rays for other sections */
+.section-background-rays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0.3;
+    mix-blend-mode: screen;
+}
+
+/* Solutions section rays */
+.solutions .section-background-rays {
+    opacity: 0.25;
+}
+
+/* About section rays */
+.about .section-background-rays {
+    opacity: 0.2;
+}
+
+/* Contact section rays */
+.contact .section-background-rays {
+    opacity: 0.15;
+}
+
+/* Ensure content is above the rays */
+.hero-content,
+.about-hero .hero-content,
+.product-detail .container,
+.blog-detail .container,
+.solutions .container,
+.about .container,
+.contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Make sure sections have relative positioning for rays */
+.solutions,
+.about,
+.contact,
+.product-detail,
+.company-story,
+.mission-values,
+.team-detailed,
+.tech-stack {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Page-specific section rays */
+.product-detail .section-background-rays {
+    opacity: 0.3;
+}
+
+.company-story .section-background-rays {
+    opacity: 0.2;
+}
+
+.mission-values .section-background-rays,
+.team-detailed .section-background-rays,
+.tech-stack .section-background-rays {
+    opacity: 0.15;
+}
+
+/* Fallback gradient for non-WebGL browsers */
+.light-rays-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(
+            ellipse at center top,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.12) 25%,
+            rgba(255, 255, 255, 0.06) 50%,
+            transparent 70%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 40%
+        );
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .light-rays-container,
+    .hero-background-rays {
+        opacity: 0.4;
+    }
+
+    .about-hero .hero-background-rays {
+        opacity: 0.15;
+    }
+
+    .product-detail .hero-background-rays {
+        opacity: 0.2;
+    }
+
+    .blog-detail .hero-background-rays {
+        opacity: 0.1;
+    }
+
+    /* Section rays mobile optimization */
+    .section-background-rays {
+        opacity: 0.15 !important;
+    }
+
+    .solutions .section-background-rays {
+        opacity: 0.12 !important;
+    }
+
+    .about .section-background-rays,
+    .contact .section-background-rays {
+        opacity: 0.08 !important;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .light-rays-container canvas,
+    .hero-background-rays canvas {
+        animation: none !important;
+    }
+}
+
+/* Performance hint for smooth animations */
+.light-rays-container canvas,
+.hero-background-rays canvas {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}

@@ -9,47 +9,16 @@
     <meta name="robots" content="index, follow">
     <title>Blog - AI novinky a vývojový blog | Prometica</title>
     <link rel="stylesheet" href="./styles.css?v=1.0">
+    <link rel="stylesheet" href="./StaggeredMenu.css">
+    <link rel="stylesheet" href="./LightRays.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="redirect-blog.js"></script>
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="bg-grid"></div>
-    <div class="bg-gradient"></div>
-    <div class="cursor-glow"></div>
-    
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-menu">
-                <a href="index.html#home" class="nav-link">
-                    <span class="nav-link-text">Domů</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="produkty.html" class="nav-link">
-                    <span class="nav-link-text">Produkty</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="about_us.html" class="nav-link">
-                    <span class="nav-link-text">O nás</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="blog.html" class="nav-link active">
-                    <span class="nav-link-text">Blog</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="index.html#contact" class="nav-cta">
-                    <span>Kontakt</span>
-                    <div class="btn-glow"></div>
-                </a>
-            </div>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Global Background -->
+    <div class="global-background" data-light-rays data-light-rays-options='{"raysOrigin":"bottom-center","raysColor":"#ffffff","raysSpeed":0.6,"lightSpread":1.4,"rayLength":1.9,"pulsating":true,"fadeDistance":1.6,"saturation":0.8,"followMouse":true,"mouseInfluence":0.08}'></div>
+
+    <!-- StaggeredMenu will be inserted here by JavaScript -->
 
     <!-- Hero Section -->
     <section class="about-hero">
@@ -66,8 +35,6 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
 
     <!-- Coming Soon Section -->
     <section class="blog-detail">
@@ -102,30 +69,33 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <p>AI studio tvořící budoucnost podnikání</p>
+                    <div class="footer-logo">
+                        <h3>🚀 Prometica</h3>
+                        <p>AI studio tvořící budoucnost podnikání</p>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Produkty ve vývoji</h4>
+                    <h4>💡 Produkty ve vývoji</h4>
                     <ul>
-                        <li><a href="produkty.html?product=smartcall">SmartCall (Ve vývoji)</a></li>
-                        <li><a href="produkty.html?product=financeiq">FinanceGuard (Ve vývoji)</a></li>
-                        <li><a href="produkty.html?product=studymate">StudyMate (Ve vývoji)</a></li>
+                        <li><a href="produkty.html#smartcall">📞 SmartCall (Ve vývoji)</a></li>
+                        <li><a href="produkty.html#financeiq">💰 FinanceGuard (Ve vývoji)</a></li>
+                        <li><a href="produkty.html#studymate">📚 StudyMate (Ve vývoji)</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Studio</h4>
+                    <h4>🏢 Studio</h4>
                     <ul>
-                        <li><a href="index.html#about">O nás</a></li>
-                        <li><a href="index.html#about">Tým</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="index.html#contact">Kontakt</a></li>
+                        <li><a href="about_us.html">👥 O nás</a></li>
+                        <li><a href="about_us.html#team">⭐ Tým</a></li>
+                        <li><a href="blog.html">📝 Vývojový blog</a></li>
+                        <li><a href="index.html#contact">✉️ Kontakt</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Kontakt</h4>
+                    <h4>📧 Kontakt</h4>
                     <ul>
-                        <li>info@prometica.cz</li>
-                        <li>+420 123 456 789</li>
+                        <li>📮 info@prometica.cz</li>
+                        <li>⏰ Odpověď do 24 hodin</li>
                     </ul>
                 </div>
             </div>
@@ -136,16 +106,32 @@
     </footer>
 
     <script src="./script.js?v=1.0"></script>
+    <script src="./LightRays.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./StaggeredMenu.js"></script>
     <script>
-        // Mobile menu functionality
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
+        // Initialize StaggeredMenu
+        document.addEventListener('DOMContentLoaded', function() {
+            const menu = new StaggeredMenu({
+                position: 'right',
+                colors: ['#000000', '#1a1a1a'],
+                items: [
+                    { label: 'Domů', link: 'index.html#home', ariaLabel: 'Navigate to home' },
+                    { label: 'Produkty', link: 'produkty.html', ariaLabel: 'View our products' },
+                    { label: 'O nás', link: 'about_us.html', ariaLabel: 'Learn about us' },
+                    { label: 'Blog', link: 'blog.html', ariaLabel: 'Read our blog' },
+                    { label: 'Kontakt', link: 'index.html#contact', ariaLabel: 'Contact us' }
+                ],
+                displaySocials: false,
+                displayItemNumbering: true,
+                logoUrl: '',
+                menuButtonColor: '#ffffff',
+                openMenuButtonColor: '#000000',
+                accentColor: '#ffffff',
+                changeMenuColorOnOpen: true
             });
-        }
+        });
     </script>
 </body>
 </html>

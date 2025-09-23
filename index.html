@@ -37,6 +37,8 @@
     <link rel="manifest" href="/site.webmanifest">
     
     <link rel="stylesheet" href="./styles.css?v=1.0">
+    <link rel="stylesheet" href="./StaggeredMenu.css">
+    <link rel="stylesheet" href="./LightRays.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Structured Data -->
@@ -90,182 +92,42 @@
     </script>
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="bg-grid"></div>
-    <div class="bg-gradient"></div>
-    <div class="cursor-glow"></div>
-    
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">
-                    <span class="nav-link-text">Domů</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="produkty.html" class="nav-link">
-                    <span class="nav-link-text">Produkty</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="about_us.html" class="nav-link">
-                    <span class="nav-link-text">O nás</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="blog.html" class="nav-link">
-                    <span class="nav-link-text">Blog</span>
-                    <span class="nav-link-hover"></span>
-                </a>
-                <a href="#contact" class="nav-cta">
-                    <span>Kontakt</span>
-                    <div class="btn-glow"></div>
-                </a>
-            </div>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Global Background -->
+    <div class="global-background" data-light-rays data-light-rays-options='{"raysOrigin":"top-center","raysColor":"#ffffff","raysSpeed":0.8,"lightSpread":1.2,"rayLength":2.0,"pulsating":true,"fadeDistance":1.5,"saturation":0.9,"followMouse":true,"mouseInfluence":0.15}'></div>
+
+    <!-- StaggeredMenu will be inserted here by JavaScript -->
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-particles"></div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="startup-badge">
-                    <span class="badge-icon">🚀</span>
+                    <span class="badge-icon">●</span>
                     <span class="badge-text">AI Startup</span>
                     <span class="badge-year">Est. 2025</span>
                 </div>
                 <h1 class="hero-title">
                     <span class="title-line">Budujeme</span>
-                    <span class="title-line gradient-text">AI budoucnost</span>
+                    <span class="title-line gradient-text" data-text="AI budoucnost">AI budoucnost</span>
                     <span class="title-line">pro český trh</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Jsme <span class="subtitle-emphasis">mladý český startup</span> zaměřený na vývoj praktických AI řešení. 
-Vytváříme řešení, která skutečně 
+                    Jsme <span class="subtitle-emphasis" data-text="mladý český startup">mladý český startup</span> zaměřený na vývoj praktických AI řešení.
+                    Vytváříme řešení, která skutečně
                     <strong>ušetří čas</strong>, <strong>sníží náklady</strong> a <strong>zautomatizují procesy</strong> pro české firmy.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary hero-cta-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
-                        <span>⚡ Chci být early adopter</span>
-                        <div class="btn-ripple"></div>
-                        <div class="btn-particles"></div>
-                    </button>
-                    <button class="btn btn-secondary" onclick="document.querySelector('#solutions').scrollIntoView({behavior: 'smooth'})">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                        </svg>
-                        <span>Co budujeme</span>
+                    <button class="btn btn-primary btn-glass hero-cta-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">
+                        <span>Chci být early adopter</span>
                     </button>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <h3 class="cards-title">Právě pro vás vyvíjíme</h3>
-                <div class="visual-container">
-                    <div class="floating-card card-ai">
-                        <div class="card-header">
-                            <div class="card-icon">💼</div>
-                            <div class="card-title">SmartCall</div>
-                        </div>
-                        <div class="card-tagline">Váš AI recepční, který nikdy nespí</div>
-                        <div class="card-content">
-                            <div class="value-proposition">
-                                <div class="value-item">
-                                    <div class="value-icon">✓</div>
-                                    <div class="value-text">
-                                        <div class="value-title">Stálá vstřícnost</div>
-                                        <div class="value-desc">agent nemá špatné dny</div>
-                                    </div>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">⚡</div>
-                                    <div class="value-text">
-                                        <div class="value-title">Okamžité nasazení</div>
-                                        <div class="value-desc">bez školení personálu</div>
-                                    </div>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">📈</div>
-                                    <div class="value-text">
-                                        <div class="value-title">Komplexní analytika</div>
-                                        <div class="value-desc">logování všech interakcí</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-glow"></div>
-                    </div>
-                    
-                    <div class="floating-card card-analytics">
-                        <div class="card-header">
-                            <div class="card-icon">🔒</div>
-                            <div class="card-title">FinanceGuard</div>
-                        </div>
-                        <div class="card-tagline">AI detektiv pro vaše finance</div>
-                        <div class="card-content">
-                            <div class="value-proposition">
-                                <div class="value-item">
-                                    <div class="value-icon">🎯</div>
-                                    <div class="value-text">
-                                        <div class="value-title">99.8% úspěšnost</div>
-                                        <div class="value-desc">detekce podvodů a chyb</div>
-                                    </div>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">💰</div>
-                                    <div class="value-text">
-                                        <div class="value-title">Ušetří až 65%</div>
-                                        <div class="value-desc">času účetních a CFO</div>
-                                    </div>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">⏱️</div>
-                                    <div class="value-text">
-                                        <div class="value-title">2 sekundy</div>
-                                        <div class="value-desc">analýza tisíců transakcí</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-glow"></div>
-                    </div>
-                    
-                    <div class="floating-card card-automation">
-                        <div class="card-header">
-                            <div class="card-icon">📚</div>
-                            <div class="card-title">StudyMate</div>
-                        </div>
-                        <div class="card-tagline">Váš virtuální chytrý pomocník</div>
-                        <div class="card-content">
-                            <div class="value-proposition">
-                                <div class="value-item">
-                                    <div class="value-icon">📄</div>
-                                    <div class="value-text">
-                                        <div class="value-title">Analyzuje učebnice</div>
-                                        <div class="value-desc">vytáhne nejdůležitější</div>
-                                    </div>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">📋</div>
-                                    <div class="value-text">
-                                        <div class="value-title">Vytváří kartičky</div>
-                                        <div class="value-desc">testy a taháky</div>
-                                    </div>
-                                </div>
-                                <div class="value-item">
-                                    <div class="value-icon">⚙️</div>
-                                    <div class="value-text">
-                                        <div class="value-title">Personalizované</div>
-                                        <div class="value-desc">přizpůsobí se vašemu tempu učení</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-glow"></div>
-                    </div>
+                <div class="hero-secondary-action">
+                    <button class="btn btn-link" onclick="document.querySelector('#solutions').scrollIntoView({behavior: 'smooth'})">
+                        <span>Co budujeme</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -275,8 +137,7 @@ Vytváříme řešení, která skutečně
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
+    <div class="seamless-divider"></div>
 
     <!-- Solutions Section -->
     <section id="solutions" class="solutions">
@@ -284,7 +145,6 @@ Vytváříme řešení, která skutečně
             <div class="section-header">
                 <div class="section-badge">
                     <span>Vyvíjíme pro vás</span>
-                    <div class="badge-glow"></div>
                 </div>
                 <h2 class="section-title">
                     <span>AI Studio</span>
@@ -297,19 +157,17 @@ Vytváříme řešení, která skutečně
             
             <div class="solutions-grid">
                 <div class="solution-card featured">
-                    <div class="card-background"></div>
                     <div class="card-content">
                         <div class="card-icon-container">
-                            <div class="card-icon large">💼</div>
+                            <div class="card-icon large">📞</div>
                             <span class="product-name">SmartCall</span>
-                            <div class="icon-glow"></div>
                         </div>
                         <div class="product-status premium">🔧 Ve vývoji</div>
                         <div class="product-tagline">Váš AI recepční, který nikdy nespí</div>
                         <p>Revolucionizujte zákaznický servis s pokročilým AI asistentem. Automaticky přijímá hovory 24/7, rezervuje stoly a poskytuje přirozené konverzace, které vaše zákazníky nadchnou.</p>
                         <div class="benefits-grid">
                             <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-icon">✨</span>
                                 <div class="benefit-text">
                                     <strong>Stálá vstřícnost</strong>
                                     <span>agent nemá špatné dny</span>
@@ -323,7 +181,7 @@ Vytváříme řešení, která skutečně
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <span class="benefit-icon">📈</span>
+                                <span class="benefit-icon">📊</span>
                                 <div class="benefit-text">
                                     <strong>Komplexní analytika</strong>
                                     <span>logování všech interakcí</span>
@@ -337,16 +195,13 @@ Vytváříme řešení, která skutečně
                             </svg>
                         </button>
                     </div>
-                    <div class="card-glow premium"></div>
                 </div>
                 
                 <div class="solution-card featured">
-                    <div class="card-background"></div>
                     <div class="card-content">
                         <div class="card-icon-container">
-                            <div class="card-icon large">🔒</div>
+                            <div class="card-icon large">💰</div>
                             <span class="product-name">FinanceGuard</span>
-                            <div class="icon-glow"></div>
                         </div>
                         <div class="product-status premium">🔧 Ve vývoji</div>
                         <div class="product-tagline">AI detektiv pro vaše finance</div>
@@ -360,14 +215,14 @@ Vytváříme řešení, která skutečně
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <span class="benefit-icon">💰</span>
+                                <span class="benefit-icon">💎</span>
                                 <div class="benefit-text">
                                     <strong>Ušetří až 65%</strong>
                                     <span>času účetních a CFO</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <span class="benefit-icon">⏱️</span>
+                                <span class="benefit-icon">⚡</span>
                                 <div class="benefit-text">
                                     <strong>2 sekundy</strong>
                                     <span>analýza tisíců transakcí</span>
@@ -381,37 +236,34 @@ Vytváříme řešení, která skutečně
                             </svg>
                         </button>
                     </div>
-                    <div class="card-glow premium"></div>
                 </div>
                 
                 <div class="solution-card featured">
-                    <div class="card-background"></div>
                     <div class="card-content">
                         <div class="card-icon-container">
                             <div class="card-icon large">📚</div>
                             <span class="product-name">StudyMate</span>
-                            <div class="icon-glow"></div>
                         </div>
                         <div class="product-status premium">🔧 Ve vývoji</div>
                         <div class="product-tagline">Váš virtuální chytrý pomocník</div>
                         <p>Revoluce v učení! Nahrajte učebnici či skripta a AI agent vám vytáhne nejdůležitější informace, vytvoří testy, kartičky a taháky přizpůsobené vašemu stylu učení.</p>
                         <div class="benefits-grid">
                             <div class="benefit-item">
-                                <span class="benefit-icon">📄</span>
+                                <span class="benefit-icon">🔍</span>
                                 <div class="benefit-text">
                                     <strong>Analyzuje učebnice</strong>
                                     <span>vytáhne klíčové informace</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <span class="benefit-icon">📋</span>
+                                <span class="benefit-icon">🛠️</span>
                                 <div class="benefit-text">
                                     <strong>Generuje materiály</strong>
                                     <span>testy, kartičky, taháky</span>
                                 </div>
                             </div>
                             <div class="benefit-item">
-                                <span class="benefit-icon">⚙️</span>
+                                <span class="benefit-icon">✨</span>
                                 <div class="benefit-text">
                                     <strong>Personalizované učení</strong>
                                     <span>přizpůsobí se vašemu tempu učení</span>
@@ -425,7 +277,6 @@ Vytváříme řešení, která skutečně
                             </svg>
                         </button>
                     </div>
-                    <div class="card-glow premium"></div>
                 </div>
                 
             </div>
@@ -442,12 +293,7 @@ Vytváříme řešení, která skutečně
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider-dots">
-        <div class="divider-dot"></div>
-        <div class="divider-dot"></div>
-        <div class="divider-dot"></div>
-    </div>
+    <div class="seamless-divider"></div>
 
     <!-- Technology Section -->
     <section id="technology" class="technology">
@@ -455,7 +301,6 @@ Vytváříme řešení, která skutečně
             <div class="section-header">
                 <div class="section-badge">
                     <span>Technologie</span>
-                    <div class="badge-glow"></div>
                 </div>
                 <h2 class="section-title">
                     <span>Experimentujeme s</span>
@@ -465,17 +310,17 @@ Vytváříme řešení, která skutečně
             
             <div class="tech-grid">
                 <div class="tech-item">
-                    <div class="tech-icon">📄</div>
+                    <div class="tech-icon">🤖</div>
                     <div class="tech-name">Machine Learning</div>
                     <div class="tech-status">Aktivní výzkum</div>
                 </div>
                 <div class="tech-item">
-                    <div class="tech-icon">⛓️</div>
+                    <div class="tech-icon">🧠</div>
                     <div class="tech-name">Neural Networks</div>
                     <div class="tech-status">Experimentujeme</div>
                 </div>
                 <div class="tech-item">
-                    <div class="tech-icon">📁</div>
+                    <div class="tech-icon">☁️</div>
                     <div class="tech-name">Cloud Infrastructure</div>
                     <div class="tech-status">Ve vývoji</div>
                 </div>
@@ -488,8 +333,7 @@ Vytváříme řešení, která skutečně
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
+    <div class="seamless-divider"></div>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -497,7 +341,6 @@ Vytváříme řešení, která skutečně
             <div class="section-header">
                 <div class="section-badge">
                     <span>Poznejte nás</span>
-                    <div class="badge-glow"></div>
                 </div>
                 <h2 class="section-title">
                     <span>Jsme</span>
@@ -519,7 +362,7 @@ Vytváříme řešení, která skutečně
                     </div>
                     
                     <div class="story-card">
-                        <div class="story-icon">✓</div>
+                        <div class="story-icon">✨</div>
                         <h3>Naše hodnoty</h3>
                         <p>
                             Transparentnost, inovace a zákaznický přístup. Každý produkt vyvíjíme v úzké spolupráci s našimi partnery a budoucími uživateli.
@@ -527,7 +370,7 @@ Vytváříme řešení, která skutečně
                     </div>
                     
                     <div class="story-card">
-                        <div class="story-icon">🔬</div>
+                        <div class="story-icon">🚀</div>
                         <h3>Naše budoucnost</h3>
                         <p>
                             Zaměřujeme se hlavně na spokojenost zákazníka a ulehčení jejich práce. Naším cílem je vytvářet AI řešení, která skutečně pomáhají firmám efektivněji fungovat.
@@ -553,12 +396,7 @@ Vytváříme řešení, která skutečně
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider-dots">
-        <div class="divider-dot"></div>
-        <div class="divider-dot"></div>
-        <div class="divider-dot"></div>
-    </div>
+    <div class="seamless-divider"></div>
 
     <!-- Blog Section -->
     <section id="blog" class="blog">
@@ -566,7 +404,6 @@ Vytváříme řešení, která skutečně
             <div class="section-header">
                 <div class="section-badge">
                     <span>Vývojový blog</span>
-                    <div class="badge-glow"></div>
                 </div>
                 <h2 class="section-title">
                     <span>Sledujte naš</span>
@@ -579,7 +416,7 @@ Vytváříme řešení, která skutečně
             
             <div class="blog-preview" style="text-align: center; padding: 60px 0;">
                 <div class="coming-soon-card" style="background: rgba(255, 167, 38, 0.1); border: 2px solid rgba(255, 167, 38, 0.2); border-radius: 16px; padding: 50px 30px; max-width: 600px; margin: 0 auto;">
-                    <div class="coming-soon-icon" style="font-size: 3rem; margin-bottom: 20px;">🔧</div>
+                    <div class="coming-soon-icon" style="font-size: 3rem; margin-bottom: 20px;">📝</div>
                     <h3 style="font-size: 1.8rem; margin-bottom: 15px; color: #FFA726;">Připravujeme pro vás náš blog</h3>
                     <p style="color: #888; font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px;">
                         Pracujeme na obsahu, který vám přinese zajímavé poznatky z vývoje našich AI produktů, technické články a aktuální novinky ze studia.
@@ -601,17 +438,14 @@ Vytváříme řešení, která skutečně
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
+    <div class="seamless-divider"></div>
 
     <!-- CTA Section -->
     <section class="cta">
-        <div class="cta-background"></div>
         <div class="container">
             <div class="cta-content">
                 <div class="cta-badge">
-                    <span>☎️ Kontaktujte nás</span>
-                    <div class="badge-glow"></div>
+                    <span>▶ Kontaktujte nás</span>
                 </div>
                 <h2 class="cta-title">
                     <span>Zajímá vás</span>
@@ -624,8 +458,7 @@ Vytváříme řešení, která skutečně
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
+    <div class="seamless-divider"></div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -634,8 +467,7 @@ Vytváříme řešení, která skutečně
                 <div class="contact-info">
                     <div class="section-badge">
                         <span>Kontakt</span>
-                        <div class="badge-glow"></div>
-                    </div>
+                        </div>
                     <h2>Napište nám</h2>
                     <p>Máte dotazy k našim produktum? Chcete se dozvědět víc o možnostech spolupráce? Neváhejte nás kontaktovat.</p>
                     
@@ -701,7 +533,6 @@ Vytváříme řešení, která skutečně
                         
                         <button type="submit" class="btn btn-primary btn-large form-submit">
                             <span>Odeslat zprávu</span>
-                            <div class="btn-ripple"></div>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
                             </svg>
@@ -721,30 +552,33 @@ Vytváříme řešení, která skutečně
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <p>AI studio tvořící budoucnost podnikání</p>
+                    <div class="footer-logo">
+                        <h3>🚀 Prometica</h3>
+                        <p>AI studio tvořící budoucnost podnikání</p>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Produkty ve vývoji</h4>
+                    <h4>💡 Produkty ve vývoji</h4>
                     <ul>
-                        <li><a href="produkty.html?product=smartcall">SmartCall (Ve vývoji)</a></li>
-                        <li><a href="produkty.html?product=financeiq">FinanceGuard (Ve vývoji)</a></li>
-                        <li><a href="produkty.html?product=studymate">StudyMate (Ve vývoji)</a></li>
+                        <li><a href="produkty.html#smartcall">📞 SmartCall (Ve vývoji)</a></li>
+                        <li><a href="produkty.html#financeiq">💰 FinanceGuard (Ve vývoji)</a></li>
+                        <li><a href="produkty.html#studymate">📚 StudyMate (Ve vývoji)</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Studio</h4>
+                    <h4>🏢 Studio</h4>
                     <ul>
-                        <li><a href="#about">O nás</a></li>
-                        <li><a href="#about">Tým</a></li>
-                        <li><a href="#blog">Vývojový blog</a></li>
-                        <li><a href="#contact">Kontakt</a></li>
+                        <li><a href="about_us.html">👥 O nás</a></li>
+                        <li><a href="about_us.html#team">⭐ Tým</a></li>
+                        <li><a href="blog.html">📝 Vývojový blog</a></li>
+                        <li><a href="#contact">✉️ Kontakt</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Kontakt</h4>
+                    <h4>📧 Kontakt</h4>
                     <ul>
-                        <li>info@prometica.cz</li>
-                        <!-- <li>+420 123 456 789</li> -->
+                        <li>📮 info@prometica.cz</li>
+                        <li>⏰ Odpověď do 24 hodin</li>
                     </ul>
                 </div>
             </div>
@@ -772,11 +606,38 @@ Vytváříme řešení, která skutečně
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./StaggeredMenu.js"></script>
     <script src="./script.js?v=1.0" defer></script>
-    <script src="redirect-blog.js"></script>
+    <script src="./LightRays.js" defer></script>
     <script>
-        // Cookie Consent functionality
+        // Initialize StaggeredMenu
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize menu
+            const menu = new StaggeredMenu({
+                position: 'right',
+                colors: ['#000000', '#1a1a1a'],
+                items: [
+                    { label: 'Domů', link: '#home', ariaLabel: 'Navigate to home section' },
+                    { label: 'Produkty', link: 'produkty.html', ariaLabel: 'View our products' },
+                    { label: 'O nás', link: 'about_us.html', ariaLabel: 'Learn about us' },
+                    { label: 'Blog', link: 'blog.html', ariaLabel: 'Read our blog' },
+                    { label: 'Kontakt', link: '#contact', ariaLabel: 'Contact us' }
+                ],
+                socialItems: [
+                    { label: 'GitHub', link: '#' },
+                    { label: 'LinkedIn', link: '#' }
+                ],
+                displaySocials: false,
+                displayItemNumbering: true,
+                logoUrl: '',
+                menuButtonColor: '#ffffff',
+                openMenuButtonColor: '#000000',
+                accentColor: '#ffffff',
+                changeMenuColorOnOpen: true
+            });
+
+            // Cookie Consent functionality
             const cookieConsent = document.getElementById('cookieConsent');
             const acceptBtn = document.getElementById('acceptCookies');
             const declineBtn = document.getElementById('declineCookies');

@@ -38,7 +38,8 @@
       "Read(/C:\\ai_web\\prometica_web/**)",
       "Read(/C:\\ai_web\\prometica_web/**)",
       "Read(/C:\\ai_web\\prometica_web/**)",
-      "Read(/C:\\ai_web\\prometica_web/**)"
+      "Read(/C:\\ai_web\\prometica_web/**)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []
