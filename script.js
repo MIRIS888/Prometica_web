@@ -41,23 +41,24 @@ function scrollToContact(productType) {
     // Navigate to contact section with clean URL
     navigateToSection('#contact');
 
-    // Pre-select the product in the form after a short delay
-    setTimeout(() => {
-        const interestSelect = document.querySelector('#interest');
-        if (interestSelect) {
-            interestSelect.value = productType;
+    // Pre-select the product in the form after a short delay (only if productType is provided)
+    if (productType) {
+        setTimeout(() => {
+            const interestSelect = document.querySelector('#interest');
+            if (interestSelect) {
+                interestSelect.value = productType;
 
-            // Add focus effect to the form
-            const contactForm = document.querySelector('#contactForm');
-            if (contactForm) {
-                contactForm.style.transform = 'scale(1.02)';
-                contactForm.style.transition = 'transform 0.3s ease';
+                // Add focus effect to the form
+                const contactForm = document.querySelector('#contactForm');
+                if (contactForm) {
+                    contactForm.style.transform = 'scale(1.02)';
+                    contactForm.style.transition = 'transform 0.3s ease';
 
-                setTimeout(() => {
-                    contactForm.style.transform = 'scale(1)';
-                }, 500);
+                    setTimeout(() => {
+                        contactForm.style.transform = 'scale(1)';
+                    }, 500);
+                }
             }
-        }
         }, 800);
     }
 }
