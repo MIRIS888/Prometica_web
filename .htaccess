@@ -53,6 +53,13 @@ RewriteEngine On
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Clean URLs for sections (remove hash and redirect to root with fragment)
+RewriteRule ^contact$ /#contact [R=301,L]
+RewriteRule ^about$ /#about [R=301,L]
+RewriteRule ^solutions$ /#solutions [R=301,L]
+RewriteRule ^technology$ /#technology [R=301,L]
+RewriteRule ^blog-section$ /#blog [R=301,L]
+
 # Remove .html extension
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

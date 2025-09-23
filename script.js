@@ -21,33 +21,43 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-// ===== SCROLL TO CONTACT FUNCTION =====
-function scrollToContact(productType) {
-    // Scroll to contact section
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-        contactSection.scrollIntoView({
+// ===== NAVIGATION FUNCTIONS =====
+function navigateToSection(sectionId) {
+    const target = document.querySelector(sectionId);
+    if (target) {
+        // Update URL without hash symbol
+        const cleanUrl = sectionId.replace('#', '');
+        history.pushState(null, null, '/' + cleanUrl);
+
+        target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
-        
-        // Pre-select the product in the form after a short delay
-        setTimeout(() => {
-            const interestSelect = document.querySelector('#interest');
-            if (interestSelect) {
-                interestSelect.value = productType;
-                
-                // Add focus effect to the form
-                const contactForm = document.querySelector('#contactForm');
-                if (contactForm) {
-                    contactForm.style.transform = 'scale(1.02)';
-                    contactForm.style.transition = 'transform 0.3s ease';
-                    
-                    setTimeout(() => {
-                        contactForm.style.transform = 'scale(1)';
-                    }, 500);
-                }
+    }
+}
+
+// ===== SCROLL TO CONTACT FUNCTION =====
+function scrollToContact(productType) {
+    // Navigate to contact section with clean URL
+    navigateToSection('#contact');
+
+    // Pre-select the product in the form after a short delay
+    setTimeout(() => {
+        const interestSelect = document.querySelector('#interest');
+        if (interestSelect) {
+            interestSelect.value = productType;
+
+            // Add focus effect to the form
+            const contactForm = document.querySelector('#contactForm');
+            if (contactForm) {
+                contactForm.style.transform = 'scale(1.02)';
+                contactForm.style.transition = 'transform 0.3s ease';
+
+                setTimeout(() => {
+                    contactForm.style.transform = 'scale(1)';
+                }, 500);
             }
+        }
         }, 800);
     }
 }
@@ -106,19 +116,62 @@ function initializeInteractions() {
         lastScrollTop = scrollTop;
     });
     
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links with clean URLs
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+
             if (target) {
+                // Update URL without hash symbol
+                const cleanUrl = targetId.replace('#', '');
+                history.pushState(null, null, '/' + cleanUrl);
+
                 target.scrollIntoView({
+                    behavior: 'smooth',
                     block: 'start'
                 });
             }
         });
     });
+
+    // Handle direct URL access and page refresh
+    handleDirectNavigation();
+}
+
+// ===== HANDLE DIRECT NAVIGATION =====
+function handleDirectNavigation() {
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function(event) {
+        const path = window.location.pathname;
+        if (path !== '/') {
+            const sectionId = '#' + path.replace('/', '');
+            const target = document.querySelector(sectionId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+
+    // Handle direct URL access or page refresh
+    const currentPath = window.location.pathname;
+    if (currentPath !== '/') {
+        const sectionId = '#' + currentPath.replace('/', '');
+        const target = document.querySelector(sectionId);
+        if (target) {
+            // Scroll after page is fully loaded
+            setTimeout(() => {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+        }
+    }
 }
 
 // ===== ANIMATED COUNTERS =====
