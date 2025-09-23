@@ -39,7 +39,10 @@
       "Read(/C:\\ai_web\\prometica_web/**)",
       "Read(/C:\\ai_web\\prometica_web/**)",
       "Read(/C:\\ai_web\\prometica_web/**)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(git rm:*)",
+      "Bash(git config:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
